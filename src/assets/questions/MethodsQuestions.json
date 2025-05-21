@@ -1,0 +1,27 @@
+[
+  {
+    "question": "You receive a transmission from Central Archives. It says: 'Pilot, we need the blueprints for Tower-17. Fly to the records center and retrieve the document without changing anything.' Which HTTP method best describes this type of operation?",
+    "correct_answer": "GET",
+    "incorrect_answers": ["POST", "PUT", "DELETE"]
+  },
+  {
+    "question": "You’re tasked with deploying a new defense drone. You land at the Drone Factory and provide its specs and configuration. Moments later, a new drone is launched and added to the city’s defense system. Which HTTP method was used to send the data and create this new resource?",
+    "correct_answer": "POST",
+    "incorrect_answers": ["GET", "PUT", "PATCH"]
+  },
+  {
+    "question": "An existing navigation beacon is malfunctioning. You upload a complete set of new coordinates and settings to fully replace its previous configuration. The old data is entirely overwritten. Which HTTP method did you use to fully replace the resource?",
+    "correct_answer": "PUT",
+    "incorrect_answers": ["PATCH", "POST", "GET"]
+  },
+  {
+    "question": "During cleanup operations, you receive orders to remove an outdated surveillance tower. You initiate the demolition protocol, and the structure is completely wiped from the city’s system. What HTTP method would correspond to this removal action?",
+    "correct_answer": "DELETE",
+    "incorrect_answers": ["PUT", "POST", "GET"]
+  },
+  {
+    "question": "The central AI requests a minor update to its vocabulary set—just a small tweak, not a complete overhaul. You fly in and upload a quick language module to update part of the existing data. Which HTTP method did you use to partially update the resource?",
+    "correct_answer": "PATCH",
+    "incorrect_answers": ["PUT", "POST", "DELETE"]
+  }
+]

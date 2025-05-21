@@ -1,0 +1,27 @@
+[
+  {
+    "question": "You land your airplane at the City Documentation Terminal. The control tower radios in and says, 'Flight DP-200, request received, understood, and successfully processed. You're clear to unload.' What HTTP status code did the control tower just send your system?",
+    "correct_answer": "200",
+    "incorrect_answers": ["201", "202", "204"]
+  },
+  {
+    "question": "You fly to the BuildZone, where a new structure request has been submitted. You press the 'Deploy Tower' button and see a construction drone zip out and place the first block. Moments later, you receive a glowing message: 'Deployment successful! Your new tower has been created and is now accessible at /structures/tower-17.' What HTTP response status best represents this successful creation?",
+    "correct_answer": "201",
+    "incorrect_answers": ["200", "204", "403"]
+  },
+  {
+    "question": "You attempt to send a resource drop to a nearby village, but you accidentally leave the coordinates field blank. The system flashes a red warning: 'Invalid input! We can’t process this request – something’s missing or malformed.' Which HTTP status code should your server return in this situation?",
+    "correct_answer": "400",
+    "incorrect_answers": ["401", "422", "500"]
+  },
+  {
+    "question": "You follow your radar to what was supposed to be the 'Old Dev Temple.' When you arrive, there’s only a barren field. Your on-board AI says: 'Hmm... there’s nothing here. The location you’re looking for doesn’t exist.' What HTTP status code reflects this mystery?",
+    "correct_answer": "404",
+    "incorrect_answers": ["403", "410", "204"]
+  },
+  {
+    "question": "You attempt to launch the City Core Diagnostics, but instead of a report, smoke starts rising from your dashboard. The system apologetically blinks: 'Something went wrong on our end. Try again later... if the server stops panicking.' Which HTTP status code would best describe this situation?",
+    "correct_answer": "500",
+    "incorrect_answers": ["503", "502", "504"]
+  }
+]
