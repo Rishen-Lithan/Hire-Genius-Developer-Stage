@@ -1,6 +1,8 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import questions from '../assets/questions/MethodsQuestions.json';
 import { useNavigate } from 'react-router-dom';
+import { db } from './Firebase';
+import { collection, addDoc, getDocs } from 'firebase/firestore';
 
 export default function MethodsTest() {
   const [currentIndex, setCurrentIndex] = useState(0);

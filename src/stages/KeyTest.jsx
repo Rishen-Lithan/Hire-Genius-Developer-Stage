@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { db } from './Firebase';
+import { collection, addDoc, getDocs } from 'firebase/firestore';
 
 export default function KeyTest() {
   const [key, setKey] = useState('');

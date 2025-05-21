@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import questions from '../assets/questions/StatusQuestions.json';
 import { useNavigate } from 'react-router-dom';
+import { db } from './Firebase';
+import { collection, addDoc, getDocs } from 'firebase/firestore';
 
 export default function CodeTest() {
   const [currentIndex, setCurrentIndex] = useState(0);
