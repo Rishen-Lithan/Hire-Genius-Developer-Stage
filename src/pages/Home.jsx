@@ -54,9 +54,8 @@ const Home = () => {
     if (!existingKey) {
       const newKey = generateKey();
       localStorage.setItem(KEY_NAME, newKey);
-      console.log('Generated and stored key:', newKey);
     } else {
-      console.log('Using existing key:', existingKey);
+      console.log('Using existing key:');
     }
 
     window.addEventListener('beforeunload', () => {

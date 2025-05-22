@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import questions from '../assets/questions/MethodsQuestions.json';
 import { useNavigate } from 'react-router-dom';
-import { db } from './Firebase';
+import { db } from '../firebase/Firebase';
 import { collection, addDoc, getDocs } from 'firebase/firestore';
 
 export default function MethodsTest() {
@@ -30,17 +30,26 @@ export default function MethodsTest() {
     }
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const correctCount = Object.entries(answers).filter(
       ([index, ans]) => ans === questions[index].correct_answer
     ).length;
-    
+
     setTrophies(correctCount);
-    localStorage.setItem('methodSubmitted', 'true');
-    localStorage.setItem(
-      'methodsTestResult',
-      JSON.stringify({ correct: correctCount, total: questions.length })
-    );
+    await localStorage.setItem('methodSubmitted', 'true');
+
+    const result = {
+      correct: correctCount,
+      total: questions.length,
+      timestamp: new Date(),
+    };
+
+    try {
+      await addDoc(collection(db, 'methods'), result);
+      console.log('Result successfully stored in Firestore');
+    } catch (error) {
+      console.error('Error adding document to Firestore:', error);
+    }
 
     setShowResult(true);
   };

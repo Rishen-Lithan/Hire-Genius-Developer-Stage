@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { db } from './Firebase';
+import { db } from '../firebase/Firebase';
 import { collection, addDoc, getDocs } from 'firebase/firestore';
 
 export default function KeyTest() {
@@ -26,15 +26,61 @@ export default function KeyTest() {
       setSubmitted(true);
     }
 
+    if (isMatch === true) {
+        const result = {
+        correct: 100,
+        total: 100,
+        timestamp: new Date(),
+      };
+
+      try {
+        await addDoc(collection(db, 'keys'), result);
+        console.log('Result successfully stored in Firestore');
+      } catch (error) {
+        console.error('Error adding document to Firestore:', error);
+      }
+    } 
+
+    if (attempts + 1 === maxAttempts) {
+      const result = {
+        correct: 0,
+        total: 100,
+        timestamp: new Date(),
+      };
+
+      try {
+        await addDoc(collection(db, 'keys'), result);
+        console.log('Result successfully stored in Firestore');
+      } catch (error) {
+        console.error('Error adding document to Firestore:', error);
+      }
+    }
+    
     setKey('');
 
     await localStorage.clear();
     await sessionStorage.clear();
   };
 
-  const handleSkip = () => {
+  const handleSkip = async () => {
     setSkipped(true);
     setSubmitted(true);
+
+    const result = {
+      correct: 0,
+      total: 100,
+      timestamp: new Date(),
+    };
+
+    try {
+      await addDoc(collection(db, 'keys'), result);
+      console.log('Result successfully stored in Firestore');
+
+      await localStorage.clear();
+      await sessionStorage.clear();
+    } catch (error) {
+      console.error('Error adding document to Firestore:', error);
+    }
   };
 
   const remainingAttempts = maxAttempts - attempts;
