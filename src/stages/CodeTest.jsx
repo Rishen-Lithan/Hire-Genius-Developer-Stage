@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import questions from '../assets/questions/StatusQuestions.json';
 import { useNavigate } from 'react-router-dom';
-import { db } from './Firebase';
+import { db } from '../firebase/Firebase';
 import { collection, addDoc, getDocs } from 'firebase/firestore';
 
 export default function CodeTest() {
@@ -30,17 +30,26 @@ export default function CodeTest() {
     }
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const correctCount = Object.entries(answers).filter(
       ([index, ans]) => ans === questions[index].correct_answer
     ).length;
 
     setTrophies(correctCount);
-    localStorage.setItem('codeSubmitted', 'true');
-    localStorage.setItem(
-      'codeTestResult',
-      JSON.stringify({ correct: correctCount, total: questions.length })
-    );
+    await localStorage.setItem('codeSubmitted', 'true');
+    
+    const result = {
+      correct: correctCount,
+      total: questions.length,
+      timestamp: new Date(),
+    };
+
+    try {
+      await addDoc(collection(db, 'codes'), result);
+      console.log('Result successfully stored in Firestore');
+    } catch (error) {
+      console.error('Error adding document to Firestore:', error);
+    }
     setShowResult(true);
   };
 
