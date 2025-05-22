@@ -36,6 +36,7 @@ export default function KeyTest() {
       try {
         await addDoc(collection(db, 'keys'), result);
         console.log('Result successfully stored in Firestore');
+        navigate('/final-stage');
       } catch (error) {
         console.error('Error adding document to Firestore:', error);
       }
@@ -51,6 +52,7 @@ export default function KeyTest() {
       try {
         await addDoc(collection(db, 'keys'), result);
         console.log('Result successfully stored in Firestore');
+        navigate('/final-stage');
       } catch (error) {
         console.error('Error adding document to Firestore:', error);
       }
@@ -75,6 +77,7 @@ export default function KeyTest() {
     try {
       await addDoc(collection(db, 'keys'), result);
       console.log('Result successfully stored in Firestore');
+      navigate('/final-stage');
 
       await localStorage.clear();
       await sessionStorage.clear();
@@ -149,34 +152,16 @@ export default function KeyTest() {
             {skipped ? (
               <>
                 <p className="text-yellow-600">⚠️ Challenge skipped. No marks awarded.</p>
-                <button
-                  onClick={() => navigate('')}
-                  className="w-full px-6 py-3 mt-4 font-semibold text-white transition bg-yellow-500 rounded-xl hover:bg-yellow-600"
-                >
-                  ➡️ Continue to Next Stage
-                </button>
               </>
             ) : isCorrect ? (
               <>
                 <p className="text-green-600">✅ Access Granted. Welcome, Commander!</p>
-                <button
-                  onClick={() => navigate('/next-stage')}
-                  className="w-full px-6 py-3 mt-4 font-semibold text-white transition bg-green-600 rounded-xl hover:bg-green-700"
-                >
-                  🚀 Proceed to Next Mission
-                </button>
               </>
             ) : (
                <>
                 <p className="text-red-600">
                   ❌ All attempts used. The correct key was <strong>{correctKey}</strong>.
                 </p>
-                <button
-                  onClick={() => navigate('/next-stage')}
-                  className="w-full px-6 py-3 mt-4 font-semibold text-white transition bg-red-500 rounded-xl hover:bg-red-600"
-                >
-                  🔄 Proceed to next stage
-                </button>
               </>
             )}
           </div>

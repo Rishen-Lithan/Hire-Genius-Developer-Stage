@@ -5,6 +5,7 @@ import { About, Contact, Home, Projects } from "./pages";
 import CodeTest from "./stages/CodeTest";
 import MethodsTest from "./stages/MethodsTest";
 import KeyTest from "./stages/KeyTest";
+import FinalStage from "./stages/FinalStage";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
                   <Route path='/codes' element={<CodeTest />} />
                   <Route path='/methods' element={<MethodsTest />} />
                   <Route path='/keys' element={<KeyTest />} />
+                  <Route path='/final-stage' element={<FinalStage />} />
                 </Routes>
               </>
             }
