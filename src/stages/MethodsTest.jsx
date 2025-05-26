@@ -10,10 +10,16 @@ export default function MethodsTest() {
   const [showResult, setShowResult] = useState(false);
   const [trophies, setTrophies] = useState(0);
   const [isAlreadySubmitted, setIsAlreadySubmitted] = useState(false);
+  const [email, setEmail] = useState('');
   
   const navigate = useNavigate();
 
   const currentQuestion = questions[currentIndex];
+
+  useEffect(() => {
+    const email = localStorage.getItem('email');
+    setEmail(email);
+  }, []);
 
   const allOptions = useMemo(() => {
     const options = [currentQuestion.correct_answer, ...currentQuestion.incorrect_answers];
@@ -41,6 +47,7 @@ export default function MethodsTest() {
     const result = {
       correct: correctCount,
       total: questions.length,
+      email: email,
       timestamp: new Date(),
     };
 

@@ -23,6 +23,16 @@ const Home = () => {
     }
   }, []);
 
+  useEffect(() => {
+    const email = new URLSearchParams(window.location.search).get('email');
+
+    if (email) {
+      window.localStorage.setItem('email', email)
+    } else {
+      console.warn('No email found in URL');
+    }
+  }, []);
+
   const handleCloseInstructions = () => {
     setShowInstructions(false);
     sessionStorage.setItem("hasSeenInstructions", "true");

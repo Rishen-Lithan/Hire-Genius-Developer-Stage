@@ -10,10 +10,16 @@ export default function KeyTest() {
   const [isCorrect, setIsCorrect] = useState(null);
   const [skipped, setSkipped] = useState(false);
   const [correctKey, setCorrectKey] = useState('');
+  const [email, setEmail] = useState('');
 
   const maxAttempts = 3;
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const email = localStorage.getItem('email');
+    setEmail(email);
+  }, []);
 
   const handleSubmit = async () => {
     const normalizedKey = key.trim();
@@ -30,6 +36,7 @@ export default function KeyTest() {
         const result = {
         correct: 100,
         total: 100,
+        email: email,
         timestamp: new Date(),
       };
 
@@ -46,6 +53,7 @@ export default function KeyTest() {
       const result = {
         correct: 0,
         total: 100,
+        email: email,
         timestamp: new Date(),
       };
 
