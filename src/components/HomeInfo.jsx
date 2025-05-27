@@ -6,11 +6,9 @@ const HomeInfo = ({ currentStage }) => {
   if (currentStage === 1)
     return (
       <h1 className='px-8 py-4 mx-5 text-center text-white sm:text-xl sm:leading-snug neo-brutalism-blue'>
-        Hello 
-        <span className='mx-2 font-semibold text-white'>User</span>
-        👋
+        Hellooo 👋
         <br />
-        Welcome to the Stage 04
+        Welcome to the Web Dev Stage
       </h1>
     );
 

@@ -49,7 +49,7 @@ const Home = () => {
   }, [isPlayingMusic]);
 
   useEffect(() => {
-    const KEY_NAME = 'sessionKey';
+    const KEY_NAME = 'secretKey';
 
     const generateKey = () => {
       const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';

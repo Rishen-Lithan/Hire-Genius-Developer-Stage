@@ -80,10 +80,6 @@ export default function MethodsTest() {
       {isAlreadySubmitted ? (
         <div className="p-6 text-center bg-white border border-green-300 shadow-lg rounded-2xl animate-pulse">
           <h2 className="mb-4 text-2xl font-extrabold text-green-600">🎯 Challenge Already Completed</h2>
-          <p className="mb-4 text-lg font-medium text-gray-700">
-            You previously got <span className="font-bold text-green-800">{trophies}</span> out of{' '}
-            <span className="font-bold">{questions.length}</span> correct.
-          </p>
           <div className="text-4xl animate-bounce">
             {Array.from({ length: trophies }, (_, i) => (
               <span key={i}>🏆</span>

@@ -34,6 +34,15 @@ const About = () => {
             Ready to unlock the key? It’s easier than you think! With just four clicks, you’ll be able to uncover the secret hidden key. 
           </p>
         </div>
+
+        <div className='p-8 bg-white border border-gray-200 shadow-lg rounded-2xl'>
+          <h3 className='mb-4 text-2xl font-bold text-indigo-600'>
+            Hint Keywords
+          </h3>
+          <p className='text-lg text-gray-700'>
+            <strong>Debug / Storage / Window</strong>
+          </p>
+        </div>
       </div>
     </section>
   );
