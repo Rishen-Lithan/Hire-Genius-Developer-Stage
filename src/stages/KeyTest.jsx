@@ -98,7 +98,7 @@ export default function KeyTest() {
 
   const handleGetKey = async () => {
     try {
-      const key = await localStorage.getItem('sessionKey');
+      const key = await localStorage.getItem('secretKey');
       if (key) {
         setCorrectKey(key);
       } else {
